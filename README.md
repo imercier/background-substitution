@@ -13,7 +13,8 @@ sudo modprobe v4l2loopback devices=1 video_nr=20 card_label="v4l2loopback" exclu
 
 #### permanent config: load v4l2loopback at each boot
 ```
-echo "v4l2loopback devices=1 video_nr=20 card_label=\"v4l2loopback\" exclusive_caps=1" | sudo tee /etc/modprobe.d/v4l2loopback.conf
+sudo sh -c "echo v4l2loopback > /etc/modules-load.d/v4l2loopback.conf"
+sudo sh -c "echo 'options v4l2loopback devices=1 video_nr=20 card_label=\"v4l2loopback\" exclusive_caps=1' > /etc/modprobe.d/v4l2loopback.conf"
 ```
 
 
